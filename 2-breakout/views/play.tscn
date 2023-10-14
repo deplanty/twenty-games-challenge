@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlmuxyrpcbdo3"]
+
+[ext_resource type="PackedScene" uid="uid://d0ipo5vcgugef" path="res://objects/walls.tscn" id="1_54sgy"]
+[ext_resource type="PackedScene" uid="uid://1utlfrn43d1" path="res://objects/bar.tscn" id="1_e0ov8"]
+[ext_resource type="Script" path="res://views/play.gd" id="1_uqmlp"]
+[ext_resource type="PackedScene" uid="uid://cnl7g54ey5fkk" path="res://objects/ball.tscn" id="3_nh7j4"]
+[ext_resource type="PackedScene" uid="uid://bynkbcliybok2" path="res://views/levels/level_1.tscn" id="5_4jesf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q1g8"]
+size = Vector2(1088, 72)
+
+[node name="Play" type="Node2D"]
+script = ExtResource("1_uqmlp")
+
+[node name="Walls" parent="." instance=ExtResource("1_54sgy")]
+
+[node name="Bar" parent="." instance=ExtResource("1_e0ov8")]
+position = Vector2(583, 554)
+
+[node name="Ball" parent="." node_paths=PackedStringArray("bar") instance=ExtResource("3_nh7j4")]
+position = Vector2(583, 530)
+bar = NodePath("../Bar")
+
+[node name="AreaBottom" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBottom"]
+position = Vector2(576, 648)
+shape = SubResource("RectangleShape2D_5q1g8")
+
+[node name="Level1" parent="." instance=ExtResource("5_4jesf")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Score: "
+
+[node name="LabelScore" type="Label" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Highscore: "
+
+[node name="LabelScoreMax" type="Label" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Lives: "
+
+[node name="LabelLives" type="Label" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
