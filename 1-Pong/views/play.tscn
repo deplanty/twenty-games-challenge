@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8wprikpw7p4g"]
+
+[ext_resource type="PackedScene" uid="uid://bcoiiv44n4qjs" path="res://objects/bar.tscn" id="1_2i1nl"]
+[ext_resource type="Script" path="res://views/play.gd" id="1_pokw8"]
+[ext_resource type="PackedScene" uid="uid://dkxs8rmc3mtmv" path="res://objects/ball.tscn" id="2_82pb7"]
+[ext_resource type="PackedScene" uid="uid://bd2r4t1f7xdvo" path="res://objects/area_goal.tscn" id="3_1no3y"]
+[ext_resource type="PackedScene" uid="uid://bkbs40secto4" path="res://objects/wall.tscn" id="3_5t62a"]
+[ext_resource type="AudioStream" uid="uid://dfxwhc08hcslk" path="res://assets/sounds/ball_goal.wav" id="6_g0ykt"]
+
+[node name="Play" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pokw8")
+
+[node name="Ball" parent="." instance=ExtResource("2_82pb7")]
+position = Vector2(592, 319)
+
+[node name="Bar1" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("1_2i1nl")]
+position = Vector2(129, 312)
+ball = NodePath("../Ball")
+
+[node name="Bar2" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("1_2i1nl")]
+position = Vector2(980, 306)
+controller = 2
+ball = NodePath("../Ball")
+
+[node name="AreaGoal1" parent="." instance=ExtResource("3_1no3y")]
+position = Vector2(20, 30)
+collision_layer = 0
+collision_mask = 2
+
+[node name="AreaGoal2" parent="." instance=ExtResource("3_1no3y")]
+position = Vector2(1230, 32)
+collision_layer = 0
+collision_mask = 2
+
+[node name="WallTop" parent="." instance=ExtResource("3_5t62a")]
+position = Vector2(566, 25)
+scale = Vector2(5, 1)
+
+[node name="WallBottom" parent="." instance=ExtResource("3_5t62a")]
+position = Vector2(579, 623)
+scale = Vector2(5, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -319.0
+offset_right = 35.5
+offset_bottom = -279.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelScoreBar1" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Score"
+horizontal_alignment = 1
+
+[node name="LabelScoreBar2" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_g0ykt")

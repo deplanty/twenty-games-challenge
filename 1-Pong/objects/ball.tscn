@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkxs8rmc3mtmv"]
+
+[ext_resource type="Script" path="res://objects/ball.gd" id="1_htdbc"]
+[ext_resource type="Texture2D" uid="uid://5jaiisx03yhx" path="res://assets/images/ball.png" id="2_ii30k"]
+[ext_resource type="AudioStream" uid="uid://de66rbw381kg2" path="res://assets/sounds/ball_bounce_bar.wav" id="3_m8v0b"]
+[ext_resource type="AudioStream" uid="uid://c1fvpgxkciv1e" path="res://assets/sounds/ball_bounce_wall.wav" id="4_usp2f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8imft"]
+radius = 12.0416
+
+[node name="Ball" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_htdbc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ii30k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8imft")
+
+[node name="LabelDebug" type="Label" parent="."]
+visible = false
+offset_top = -35.0
+offset_right = 113.0
+offset_bottom = -12.0
+vertical_alignment = 1
+
+[node name="Node" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2DBar" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("3_m8v0b")
+
+[node name="AudioStreamPlayer2DWall" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("4_usp2f")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddrbr5hktckbk"]
+
+[ext_resource type="Script" path="res://views/home.gd" id="1_lj710"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7gaob"]
+font_size = 28
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lj710")
+
+[node name="Label20GamesChallenge" type="Label" parent="."]
+layout_mode = 1
+offset_right = 81.0
+offset_bottom = 42.0
+text = "The 20 Games Challenge"
+label_settings = SubResource("LabelSettings_7gaob")
+vertical_alignment = 1
+
+[node name="LabelTitle" type="Label" parent="."]
+layout_mode = 2
+offset_left = 524.0
+offset_top = 187.0
+offset_right = 628.0
+offset_bottom = 240.0
+text = "PONG"
+label_settings = SubResource("LabelSettings_7gaob")
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ButtonPlayPvP" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Player 1 VS Player 2"
+
+[node name="ButtonPlayPvAI" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Player 1 VS AI"
+
+[node name="ButtonQuit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"

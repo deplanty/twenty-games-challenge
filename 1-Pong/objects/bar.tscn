@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcoiiv44n4qjs"]
+
+[ext_resource type="Script" path="res://objects/bar.gd" id="1_qji07"]
+[ext_resource type="Texture2D" uid="uid://dwcb4t7emuksx" path="res://assets/images/bar.png" id="2_ewrc4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17ffg"]
+size = Vector2(24, 113)
+
+[node name="Bar" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_qji07")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ewrc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_17ffg")
