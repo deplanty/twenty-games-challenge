@@ -2,6 +2,7 @@
 The 20 Games Challenge from https://20_games_challenge.gitlab.io/challenge/
 
 ## Game #1: Pong
+
 <b>Goals:</b>
 
 - Create an arena with two walls and a divider.
@@ -20,7 +21,6 @@ The 20 Games Challenge from https://20_games_challenge.gitlab.io/challenge/
 
 ## Game #2: Breakout
 
-
 <b>Goal:</b>
 
 - Create a game space with walls and a ceiling.
@@ -37,3 +37,6 @@ The 20 Games Challenge from https://20_games_challenge.gitlab.io/challenge/
 - Save the high score between play sessions and display it alongside the player score.
 - Add different colors to the bricks in the rows. (The original game was black-and-white, but had a colored film on the screen, simulating colored rows of bricks)
 - The paddle should get narrower once the ball reaches the ceiling.
+
+<b>Result:</b>
+![image](https://github.com/deplanty/twenty-games-challenge/assets/38189611/5ecf4d74-864c-4794-afa5-318ac6e8a288)
