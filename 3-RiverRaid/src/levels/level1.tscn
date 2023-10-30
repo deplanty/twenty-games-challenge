@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://deqdy4f2dn3tw"]
+
+[ext_resource type="PackedScene" uid="uid://bj78wr75b5ki" path="res://src/objects/enemies/helicopter.tscn" id="1_wc7lf"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Helicopter" parent="." instance=ExtResource("1_wc7lf")]
+position = Vector2(613, 298)
